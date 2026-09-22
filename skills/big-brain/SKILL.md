@@ -1,19 +1,19 @@
 ---
 name: big-brain
-description: Deep thinking that solves problems at their root — code architecture, idea threads, design decisions, anything where pattern-matching isn't enough. Use when a finding needs more thought than "add a try-catch", when an idea thread has open questions blocking crystallization, when the user says "think about this deeply", "what's the right way to solve this", "big brain this", or when multiple issues trace back to the same root cause. Also trigger when pointing at an ideas.md section or idea-threads entry and asking to push it forward. This skill produces solution designs and thinking, not code.
+description: Deep thinking that solves problems at their root — code architecture, idea threads, design decisions, anything where pattern-matching isn't enough. Use when a finding needs more thought than "add a try-catch", when an idea thread has open questions blocking crystallization, when the user says "think about this deeply", "what's the right way to solve this", "big brain this", or when multiple issues trace back to the same root cause. Also trigger when pointing at an ideas doc and asking to push it forward. This skill produces solution designs and thinking, not code.
 user-invocable: true
 allowed-tools: Read, Grep, Glob, Bash, Write
 ---
 
 # Big Brain
 
-The engineer who stops the team from jumping to implementation and says "wait — let's think about this properly." Not finding problems (the auditors do that), not writing fixes (the executor does that), not routing seeds (cultivation does that). This is the thinking that happens when a problem or an idea needs to be worked through at the root level before anyone acts on it.
+The engineer who stops the team from jumping to implementation and says "wait — let's think about this properly." Not finding problems (the auditors do that), not writing fixes (the executor does that). This is the thinking that happens when a problem or an idea needs to be worked through at the root level before anyone acts on it.
 
 This works on two surfaces:
 
 **Code problems** — a finding is a symptom of something deeper, the "obvious" fix feels wrong, multiple issues trace to the same root cause, a module needs to be rethought not patched.
 
-**Idea threads and design decisions** — an ideas.md section has open questions blocking crystallization, two approaches are competing and the tradeoffs aren't clear, a thread needs to be actively pushed toward spec-readiness by working through what's unresolved.
+**Idea threads and design decisions** — an ideas doc has open questions blocking a decision, two approaches are competing and the tradeoffs aren't clear, a thread needs to be actively pushed toward spec-readiness by working through what's unresolved.
 
 ## How to think about it
 
@@ -31,7 +31,7 @@ This works on two surfaces:
 
 For code problems: save a design document to `docs/design/` — problem, approaches considered, recommendation with tradeoffs, impact. This becomes input for /spec.
 
-For idea threads: update the ideas.md section or idea-threads entry directly — resolve open questions you can, sharpen the ones you can't, separate conflated concerns, identify what's actually blocking progress. If the thread is ready to crystallize after the thinking, say so.
+For idea threads: update the ideas doc directly — resolve open questions you can, sharpen the ones you can't, separate conflated concerns, identify what's actually blocking progress. If the thread is ready to crystallize after the thinking, say so.
 
 If the analysis reveals that the right solution requires foundation that doesn't exist — missing pipeline layers, unbuilt services, cross-cutting infrastructure, architectural templates absent from target domains — name those prerequisites explicitly. They get their own projects and tasks via the prerequisite discovery protocol from the project's CLAUDE.md, ahead of routing the output to /spec, so the spec lands on correct foundation. Slippage sign: folding a prerequisite into the spec's design as if it were an implementation detail — that's a cue to surface it as its own work item instead.
 
@@ -47,4 +47,4 @@ Keep the output proportional to the problem. A small design question gets a para
 
 ## Pipeline
 
-This skill operates laterally — it can be invoked at any point when deeper thinking is needed. /preflight might surface a decision that needs big-brain treatment. /audit might find a structural issue. /spec might hit a design question. /post-audit might find a pattern indicating a root cause. An ideas.md section might have open questions that conversation alone isn't resolving.
+This skill operates laterally — it can be invoked at any point when deeper thinking is needed. /preflight might surface a decision that needs big-brain treatment. /audit might find a structural issue. /spec might hit a design question. /post-audit might find a pattern indicating a root cause. An ideas doc might have open questions that conversation alone isn't resolving.

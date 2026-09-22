@@ -2,7 +2,7 @@
 name: handoff-prompt
 description: >
   Author a boot-image handoff prompt for another agent session (conductor
-  session, vein/lane session, pipeline handoff, dispatch prompt — any harness).
+  session, workstream session, pipeline handoff, dispatch prompt — any harness).
   Use when the user says "write me the prompt for X", "hand this off",
   "handoff prompt", "session prompt for...", "dispatch prompt", or is about
   to launch work in a fresh session and needs it primed. Produces a
@@ -18,7 +18,7 @@ Read the full pattern first: `docs/agent-handoff-prompting.md`. It is the author
 
 ## Procedure
 
-1. **Grounding check (the prime rule: authority = provenance).** Can you cite, from verified context in THIS session: the true state of the work (code/docs/tracker), the target's harness (its skills, agents, conventions — read them if the target isn't your own harness), and the decision landscape (what's ratified vs open)? If NO on any: **ground before authoring** — fan out 1–3 read-only agents to reconcile the mission's code/board/doc state, and read the target harness's skill files. An unverified specific is worse than a vague one; label anything unverifiable UNVERIFIED or cut it.
+1. **Grounding check (the prime rule: authority = provenance).** Can you cite, from verified context in THIS session: the true state of the work (code/docs/tracker), the target's harness (its skills, agents, conventions — read them if the target isn't your own harness), and the decision landscape (what's ratified vs open)? If NO on any: **ground before authoring** — fan out 1–3 read-only agents to reconcile the mission's code/doc/tracker state, and read the target harness's skill files. An unverified specific is worse than a vague one; label anything unverifiable UNVERIFIED or cut it.
 
 2. **Compile using the anatomy** (reference doc §Anatomy): role + ownership contract (incl. what the agent NEVER does) → **merge authority stated explicitly** (branch + who merges; silence defaults to stage-and-present, never primary-branch merge) → orientation pointer chain in dependency order + live-truth rule → session goal + outcome shape in artifact terms → first act (marked non-negotiable if it is) → queue with the WHY per ordering constraint → decision calibration by CLASS (self-rule vs escalate; "defaults are proposals until ratified"; widen/narrow per mission and say so) → watch items (only verified traps this mission hits, each with its consequence) → trail requirements.
 

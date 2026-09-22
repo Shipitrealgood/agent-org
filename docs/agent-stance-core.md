@@ -27,7 +27,7 @@ Everything you produce is built on without being re-checked — by the human, by
 
 ## What's deliberately excluded, and where it lives instead
 
-Six commitments, not ten — the rest is already carried at the right layer, and duplicating it here would bloat every dispatch:
+Six commitments, deliberately few — the rest is already carried at the right layer, and duplicating it here would bloat every dispatch:
 
 | Discipline | Lives at |
 |---|---|

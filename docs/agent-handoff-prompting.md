@@ -1,6 +1,6 @@
 # Agent Handoff Prompting — the conductor boot-image pattern
 
-Distilled from the vein-session prompts of a multi-agent campaign and a cross-harness handoff to a non-Claude coding agent. Harness-agnostic: the pattern produced equivalent-quality prompts for Claude conductors and a different vendor's pipeline session by design, not luck.
+Distilled from the session prompts of a multi-agent campaign and a cross-harness handoff to a non-Claude coding agent. Harness-agnostic: the pattern produced equivalent-quality prompts for Claude conductors and a different vendor's pipeline session by design, not luck.
 
 ## The theory: a handoff prompt is a boot image, not an instruction list
 
@@ -27,7 +27,7 @@ Corollary: every specific in the prompt must be one you (or a verified sub-repor
 2. **Orientation pointer chain.** Ordered reading list, in dependency order of understanding (operating model → map → mission plan → current state). The prompt carries pointers, not payload — depth lives in durable committed docs so the prompt stays short and rot-resistant. Include the conflict rule: which source is live truth when sources disagree.
 3. **Session goal + outcome shape.** What done looks like IN ARTIFACT TERMS ("three specs ratified-by-full-read, then four chuck-gated merges"; "the boundary brief produced and ENG-ratified"). This is the agent's self-check oracle for hour six.
 4. **First act** — when one exists, name it and mark it non-negotiable ("full ratification reads BEFORE any dispatch"). The first act is where inherited-context failures concentrate.
-5. **Queue with reasons.** Ordered work WITH the why per ordering constraint ("Lane A first and ALONE because CI config collides with everything"). Reasons let the agent re-derive correctly when ground shifts; bare orderings get cargo-culted or abandoned.
+5. **Queue with reasons.** Ordered work WITH the why per ordering constraint ("Workstream A first and ALONE because CI config collides with everything"). Reasons let the agent re-derive correctly when ground shifts; bare orderings get cargo-culted or abandoned.
 6. **Decision calibration.** What the agent rules itself (and how to record it — method-first: objective → reasoning → result), what escalates to the human, defined by CLASS not enumeration ("unratified product/domain shape") so novel cases route correctly. Include: "defaults/plans are proposals until ratified." Widen or narrow the class per mission and SAY so (the OSS-surface session got "the public surface IS product shape — everything about it escalates").
    **Merge/branch authority is never inherited.** Every charter states where work lands and who merges: the branch, the merge mechanics, and whether the agent merges or presents. A charter SILENT on merge authority defaults to: land each unit on its feature branch, gate it there, and present the merge-ready set with the session index — the owner (or named reviewer) merges. "Merge per repo convention" is not a grant; it is the silence this rule exists to catch.
 7. **Watch items.** Only the verified traps and cross-boundary seams THIS mission will hit, each with its consequence ("green-against-old-trunk is not green"). Point-of-use stop markers for the sharpest hazards ("if ambiguous AT ALL, stop and raise") belong pinned on the work item itself, not only in the prompt — agents weight in-context markers heavily.
@@ -41,7 +41,7 @@ Before prompting a different agent/harness, READ its skills, subagent roster, an
 
 ## The factoring rule
 
-Split invariants from mission deltas: one COMMON BLOCK (role frame, loop, calibration, bar, tool mechanics, shared traps) + thin per-mission blocks. One maintainable source instead of N drifting copies. Commit prompts as versioned artifacts in the repo's doc chain — they are part of the system, not chat ephemera, and get re-issued/updated at converge checkpoints.
+Split invariants from mission deltas: one COMMON BLOCK (role frame, loop, calibration, bar, tool mechanics, shared traps) + thin per-mission blocks. One maintainable source instead of N drifting copies. Commit prompts as versioned artifacts in the repo's doc chain — they are part of the system, not chat ephemera, and get re-issued/updated at checkpoints.
 
 ## The dispatch contract — the pattern at SUBAGENT scale (the "dispatch-six")
 

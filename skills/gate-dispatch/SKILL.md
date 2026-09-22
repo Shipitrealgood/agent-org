@@ -29,7 +29,8 @@ the executor's build report, prior gate rounds — and resolve superseded ruling
 before you write a line. Each CURRENT acceptance line, and each claim a current
 line depends on, becomes one verification obligation: *assess it independently;
 the claim is not evidence.* Prior gate rounds, prior mutation runs and
-intermediate reports are context, not obligations (the verification-scope rule). Attach provenance
+intermediate reports are context, not obligations — verification scope comes
+from what the unit must satisfy NOW, not from everything anyone ever checked. Attach provenance
 to each point (comment id, spec §) so the gate can pull context itself. Completeness
 check, both ways: an acceptance line with no obligation is a hole; an obligation
 with no current acceptance line is busywork — drop it or raise it as a named
@@ -65,7 +66,7 @@ them "confirm or refute — not settled." Fences save rework rounds and keep
 authority = provenance.
 
 **4 · Filter the trap store by touched surface.** Sweep project memory, the
-current close doc's traps section, and the standing contract; keep every trap
+current handoff's traps section, and your CLAUDE.md; keep every trap
 whose trigger surface this unit touches. State each as *signature →
 diagnosis*, e.g. "module-not-found / 0-tests-collected = environment diagnosis
 FIRST, defect second", "a test runner that needs an env flag it wasn't given — environmental",
@@ -83,14 +84,14 @@ chase it."
 - **Deliverable contract** — severity classes, file:line cites, concrete
   failure scenario per finding, incremental report (doc early, backfill
   numbers), pinned output path, model attestation at the end.
-- **Constraints** — resource rules that bind here: canonical gate script over
-  hand-rolled batteries, one heavy lane, fresh DB substrate, env contract
-  satisfied never weakened. Long-running batteries: launch DETACHED (setsid,
-  log to disk), CONFIRM LIVENESS (first phase/batch line, never just START),
-  then deliberately END YOUR TURN — the dispatcher watches the log and wakes
-  you at GATE_EXIT. This is the designed handoff, not a fallback: detached
+- **Constraints** — resource rules that bind here: the repo's canonical test script over
+  hand-rolled runners, one heavy test run at a time, fresh DB substrate, env contract
+  satisfied never weakened. Long-running test runs: launch DETACHED (setsid,
+  log to disk), CONFIRM LIVENESS (first real batch line in the log, never just
+  a START banner), then deliberately END YOUR TURN — the dispatcher watches the
+  log and wakes you when the run exits. This is the designed handoff, not a fallback: detached
   children cannot wake a stopped agent, and "I'll poll" has failed three of
-  three times in practice. The dispatcher owns a watchdog per battery
+  three times in practice. The dispatcher owns a watchdog per run
   (tracked background loop on the log + a silent-death check on the process).
 - **Escalation** — named question + options + recommendation; never a silent
   guess, never fix-while-in-there.
@@ -111,8 +112,9 @@ stale dispatch verbatim.
   environment continuity to the review pin); re-run only when the receipt fails
   that check or a current acceptance line cannot otherwise be discharged. Never
   re-run a superseded experiment to re-establish an old claim.
-- Independence is a second mind on this pin, not a second house floor: the gate
-  runs this unit's suites, the named teeth and the named mutants. Extra controls
+- Independence is a second mind on this commit, not a second full test
+  campaign: the gate runs this unit's suites, the named static checks and the
+  named mutation probes. Extra controls
   beyond the dispatch inventory come back as a named question with options — the
   gate never spends the controls budget itself.
 - The gate's product is falsification attempts; findings get tested against
@@ -136,10 +138,12 @@ conventions ("must be incapable of X, not trusted not to X"), and
 ENG-DECISION markers with options + recommendation for anything genuinely the
 human's. Pin the spec's output path and require a trunk-SHA header so drift
 is detectable at execution time. MANDATORY (class-fixed after 3 strikes):
-the spec enumerates the touched packages' STATIC-DECLARATION TEETH — census
-suites, log-partition tooth, coverage/freshness records, registry pins — into
-its gate list; drift against any static tooth was missed by executor AND spec
-three units running before this rule existed.
+the spec enumerates the touched packages' STATIC-DECLARATION CHECKS — tests
+that assert a hand-maintained list matches the code (every table has an access
+policy, every sensitive field is on the redaction list, every route is in the
+registry, generated artifacts match their source) — into its gate list; drift
+against one of these was missed by executor AND spec three units running
+before this rule existed.
 
 ## Executor-dispatch variant (codeclaude / fix-in-lane)
 

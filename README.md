@@ -68,7 +68,7 @@ For one change: `/audit` the code you're about to build on → `/spec` → `/exe
 
 ## Vocabulary
 
-**ENG** — the human owning vision and bar. **Conductor** — a session that grades, gates, merges, and records. **Unit** — one piece of work through the loop. **Method-first** — every ruling recorded as objective → reasoning → result. **Dispatch-six** — the six things every subagent prompt carries (role + negative space, verified grounding with absolute paths, deliverable contract, constraints, escalate-as-question, the 2–3 traps this unit will hit).
+**ENG** — the human owning vision and bar. **Conductor** — a session that grades, gates, merges, and records. **Unit** — one piece of work through the loop. **Vein** — a coherent slice of a larger body of work, owned by one conductor session (the principles mention them; the multi-vein layer isn't published yet). **Method-first** — every ruling recorded as objective → reasoning → result. **Dispatch-six** — the six things every subagent prompt carries (role + negative space, verified grounding with absolute paths, deliverable contract, constraints, escalate-as-question, the 2–3 traps this unit will hit).
 
 ## What's next
 
