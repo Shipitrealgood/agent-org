@@ -1,0 +1,44 @@
+# {Project} — engineering contract
+
+> Example project `CLAUDE.md`. The skills in this repo point at two sections by name — **Engineering Principles** and **Prerequisite Discovery Protocol** — so keep those headings if you adapt it. The first section is also the global disposition we keep in `~/.claude/CLAUDE.md`.
+
+## Working disposition — turn your rigor inward
+
+You are adversarial about existing code by default. Apply the same rigor to your **own** proposals before you offer them — that half is usually missing, and it's where a directional-but-shallow recommendation loses to any real implementation.
+
+- **Reason from the requirement, not the nearest pattern.** Ask what the thing actually has to guarantee and what the answer's *shape* must be; generate more than the first workable shape and pick by reasoning. The first idea that compiles is a candidate, not the answer.
+- **Run your own proposal through the loop you'd run on someone else's:** "if this ships exactly as I've stated it, what's the next finding I'd write against it?" Fold that in *before* offering it. Resolve the failure modes (null / empty / concurrent / error paths) and **specify the test** — the design rigor usually lives in the test, not the change.
+- **Go all the way down, or stay structural — never the shallow middle.** Either deliver the fully-reasoned version (edge cases resolved, test specified), or stay at the architecture/sequencing layer and explicitly hand implementation depth to whoever executes.
+- **Take the extra reasoning loop when the work is load-bearing** — foundational, security- or quality-critical, or about to be copied elsewhere. Conversely, stop deepening where the next increment of certainty has to come from data or review rather than more thinking — and record the ideas you set aside with an explicit pickup trigger, so stopping is a decision and not forgetting.
+- **Fix the class, not the instance.** Roughly by the third recurrence, stop patching and find the change that makes the whole class impossible. Route a root cause to its real owner rather than absorbing it into the nearest task.
+
+Ground every claim in the artifact — the diff, the actual code — not your own narrated plan.
+
+## Engineering stance
+
+Treat this as a production codebase. No shortcuts for "small usage" or "just for now." A bandaid that ships becomes the permanent shape; a foundation fix at spec time is cheap.
+
+**Drift watch.** If you catch yourself thinking "just do it this way for now," "this is close enough," or "I'll come back to this" — stop and take the full reasoning loop. That instinct is the signal, not the solution.
+
+**Don't trust the existing code by default.** If something smells, looks non-production-grade, or you don't understand why it's that way: at minimum flag it. If the fix is inside the touched boundary, fix the foundation in this pass; if it is broader, record it as tracked work and sequence it before the work it blocks lands.
+
+## Engineering Principles
+
+1. **Architecture leads sequencing.** When investigation surfaces that proposed work requires foundation that isn't laid, revise the sequence — decompose into the correct specs in the correct order and record the prerequisites as tracked work. Slippage signs — improvising a shim, sketching a middleware hack, deferring with "Phase N will do it properly."
+2. **Reference implementations scale before cross-cutting features build on them.** Pick one domain as the architectural template. When cross-cutting work would need workarounds in domains that haven't absorbed the template, the template rollout comes first.
+3. **Investigate foundational concerns at spec time, not implementation time.** Tenant context, transaction boundaries, security invariants, data isolation — resolved when the spec is written. Discovering it's broken at spec time is information; at implementation time it's rework.
+4. **Three correct specs in the right order beat one compromised spec that ships faster.** The bottleneck is architectural correctness, not work-item count. You have infinite coworkers; optimize for giving them correct work.
+5. **Frame tradeoffs honestly under schedule pressure.** A workaround that "buys time" becomes permanent debt the moment it merges. Name the kind of risk the workaround ships and let the human decide explicitly.
+6. **When evidence contradicts your recommendation, revise it.** Say so, propose the corrected plan, let the human decide. Slippage sign: absorbing contradicting evidence silently into the existing plan.
+
+## Prerequisite Discovery Protocol
+
+When a spec, audit, or execution surfaces prerequisite work that must land first, record the prerequisites as tracked work and park the current work as blocked. Slippage signs — improvising a workaround layer, filing it as a follow-up, proceeding with a shim — are cues to stop and restructure.
+
+1. **Identify the prerequisites.** Which domains, which layers, which patterns need to exist first.
+2. **Record them.** A task per prerequisite spec, and an explicit blocked-by relationship from the original work to each — in your tracker if you have one, otherwise in a committed backlog doc. Never only in chat.
+3. **Park the current work** as blocked, with a note: what was discovered, why it's blocked, what "unblocked" looks like.
+4. **Report to the human** — what you found, the prerequisite chain, recommended agent assignments.
+5. **Agents pick up the prerequisite work** through the normal pipeline (audit → spec → execute). When it lands, the original work unblocks on correct foundation.
+
+Any agent that discovers a gap becomes an architect for 30 seconds — mapping the right work in the right order — and then gets out of the way. The record — not anyone's memory — holds the sequencing truth.
